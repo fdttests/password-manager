@@ -1,6 +1,9 @@
-# Password Manager
 
-App to manage passwords, based on LastPass. Adittional information about the test can be seen [here](https://github.com/fdttests/password-manager/blob/main/challenge.md).
+<h1 align="center">Password Manager</h1>
+
+![Workflow Actions Node CI](https://github.com/fdttests/password-manager/actions/workflows/ci.yml/badge.svg)
+
+App to manage passwords based on LastPass. Adittional information about the test can be seen [here](https://github.com/fdttests/password-manager/blob/main/challenge.md).
 
 The project consists of two repositories:
 
@@ -37,11 +40,13 @@ Some simple use cases classes were implemented to isolate the communication betw
 
 The core application is very simple, so I decided to only use Angular's default input/output and RxJs to do the communication between components. In a more complex context, with more component levels and data, a state management tool such as [elf](https://github.com/ngneat/elf) should be used to improve the communication between the components.
 
+A simple Github Action was added to guarantee that the install/test/eslint process is working as expected.
+
 ## Bonus Points
 
 Due to lack of time, only Angular's default components tests were implemented. In a production application, the functionality and behavior of each component should be tested. The use case classes should have tests too.
 
-# Technical Dependencies and Libraries
+## Technical Dependencies and Libraries
 
 The app was developed using VS Code. The frameworks/dependencies used are listed bellow:
 
@@ -54,3 +59,4 @@ The app was developed using VS Code. The frameworks/dependencies used are listed
 - `express` - Used to serve the demo application on Heroku. Version `~4.17.3` was used;
 - `ngx-clipboard` - Lightweight package to deal with clipboard (copy to clipboard feature);
 - `ng-tailwindcss` & `tailwindcss` - CSS Utility first framework used on the application UI;
+- `eslint` & `@typescript-eslint` - Lint tool to code standardization;
