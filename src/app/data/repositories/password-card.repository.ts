@@ -38,7 +38,11 @@ export default class PasswordCardRepository {
 
     public update(passwordCard: PasswordCardModel) {
         return this.http.put<void>(`${this.apiUrl}/password-cards/${passwordCard.id}`, {
-            data: passwordCard
+            data: {
+                username: passwordCard.username,
+                password: passwordCard.password,
+                url: passwordCard.url
+            }
         });
     }
 
