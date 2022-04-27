@@ -2,7 +2,7 @@
 
 App to manage passwords, based on LastPass. Adittional information about the test can be seen [here](https://github.com/fdttests/password-manager/blob/main/challenge.md).
 
-The full consists of two repositories:
+The project consists of two repositories:
 
 - [Front end](https://github.com/fdttests/password-manager);
 - [Back end](https://github.com/fdttests/password-manager-api);
