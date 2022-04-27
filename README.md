@@ -21,17 +21,17 @@ Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.gi
 
 ## Algorithm & Approach
 
-The application was developed using a simple base Angular project using lazy loading route modules. The source consist of three folders:
+The application was developed using a simple base Angular project with lazy loading route modules. The source consist of three folders:
 
-- `components`: Generic components that can be used in a whole application context. In this folder are a generic card component and a simple modal;
+- `components`: Generic components that can be used in the whole application context. In this folder are a generic card component and a simple modal;
 - `pages`: Represents each main page / route of the application. This folder has a subfolder called components, so, while the global/generic components are stored in `app/components`, the module/page specific componentes are stored on `pages/page-module-name/components`; 
-- `data`: Stores non-component related parts of the application, like models, repositories, use cases, helper functions and etc;
+- `data`: Stores non-component related parts of the application, like models, repositories, use cases, helper functions, etc;
 
-To follow clean architecture, the content of data folder should be splited into core/infrastructure, domain and application layers. For the sake of simplicity, I decided to group everything on data model, but on a production app, the layers concerns would need a better delimitation.
+To follow clean architecture, the content of data folder should be splited into core/infrastructure, domain and application layers. For the sake of simplicity, I decided to group everything on data folder, but on a production app, the layers concerns should be better defined.
 
 Some simple use cases classes were implemented to isolate the communication between the application components and the data souce (repositories).
 
-The core application is very simple, so I decided to only use Angular's default input/output and RxJs to do the communication between components. In a more complex context, with more component levels and data, an state management tool such as [elf](https://github.com/ngneat/elf) could be used to improve the communication between the components.
+The core application is very simple, so I decided to only use Angular's default input/output and RxJs to do the communication between components. In a more complex context, with more component levels and data, a state management tool such as [elf](https://github.com/ngneat/elf) should be used to improve the communication between the components.
 
 ## Bonus Points
 
@@ -48,5 +48,5 @@ The app was developed using VS Code. The frameworks/dependencies used are listed
 - `zone.js` - Angular's default dependency to manipulate browser's default behavior;
 - `karma` - Angular's default dependency for testing;
 - `express` - Used to serve the demo application on Heroku. Version `~4.17.3` was used;
-- `ngx-clipboard` - Lightweight package to deal with clipboard (to copy to clipboard feature);
-- `ng-tailwindcss` & `tailwindcss` - CSS Utility first framework used to the application UI;
+- `ngx-clipboard` - Lightweight package to deal with clipboard (copy to clipboard feature);
+- `ng-tailwindcss` & `tailwindcss` - CSS Utility first framework used on the application UI;
