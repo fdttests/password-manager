@@ -6,9 +6,9 @@ import { ListPasswordComponent } from './components/list-password/list-password.
 import { ModalPasswordComponent } from './components/modal-password/modal-password.component';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+    selector: 'app-home-page',
+    templateUrl: './home-page.component.html',
+    styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
   @ViewChild(ListPasswordComponent)
@@ -18,7 +18,7 @@ export class HomePageComponent {
   public modalPasswordComponent!: ModalPasswordComponent;
 
   public form = this.formBuilder.group({
-    searchTerm: new FormControl('')
+      searchTerm: new FormControl('')
   });
 
   public constructor(
@@ -27,26 +27,26 @@ export class HomePageComponent {
   ) { }
 
   public triggerSearch() {
-    this.listPasswordComponent.loadPasswords();
+      this.listPasswordComponent.loadPasswords();
   }
 
   public addPassword() {
-    this.modalPasswordComponent.openWithPasswordCard({
-      name: '',
-      username: '',
-      url: '',
-      password: '',
-    });
+      this.modalPasswordComponent.openWithPasswordCard({
+          name: '',
+          username: '',
+          url: '',
+          password: '',
+      });
   }
 
   public editPassword(passwordCard: PasswordCardModel) {
-    this.modalPasswordComponent.openWithPasswordCard(passwordCard);
+      this.modalPasswordComponent.openWithPasswordCard(passwordCard);
   }
 
   public deletePassword(passwordCard: PasswordCardModel) {
-    this.deletePasswordCardByIdUseCase.execute(passwordCard.id as string).subscribe(() => {
-      alert('Password deleted!');
-      this.triggerSearch();
-    });
+      this.deletePasswordCardByIdUseCase.execute(passwordCard.id as string).subscribe(() => {
+          alert('Password deleted!');
+          this.triggerSearch();
+      });
   }
 }

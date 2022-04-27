@@ -24,16 +24,14 @@ export default class PasswordCardRepository {
         return this.http
             .get<GenericResponseModel>(`${this.apiUrl}/password-cards?${queryString}`)
             .pipe(
-                map((response: GenericResponseModel) => {
-                    return response?.data && Array.isArray(response.data) ? response.data : [];
-                }),
+                map((response: GenericResponseModel) => response?.data && Array.isArray(response.data) ? response.data : []),
             );
     }
 
     public store(passwordCard: PasswordCardModel) {
         return this.http.post<void>(`${this.apiUrl}/password-cards`, {
             data: passwordCard
-        })
+        });
     }
 
     public update(passwordCard: PasswordCardModel) {

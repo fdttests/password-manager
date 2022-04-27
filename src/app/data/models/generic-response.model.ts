@@ -1,3 +1,3 @@
 export default interface GenericResponseModel {
-    data: object | Array<any> | null | undefined
+    data: object | Array<any> | null | undefined;
 }

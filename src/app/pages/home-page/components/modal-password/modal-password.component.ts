@@ -7,9 +7,9 @@ import CreatePasswordCardUseCase from 'src/app/data/use-cases/create-password-ca
 import UpdatePasswordCardUseCase from 'src/app/data/use-cases/update-password-card.use-case';
 
 @Component({
-  selector: 'app-modal-password',
-  templateUrl: './modal-password.component.html',
-  styleUrls: ['./modal-password.component.css']
+    selector: 'app-modal-password',
+    templateUrl: './modal-password.component.html',
+    styleUrls: ['./modal-password.component.css']
 })
 export class ModalPasswordComponent {
   @ViewChild(ModalComponent)
@@ -23,10 +23,10 @@ export class ModalPasswordComponent {
   public isLoading = false;
 
   public passwordForm = this.formBuilder.group({
-    name: new FormControl('', [Validators.required]),
-    username: new FormControl('', [Validators.required]),
-    url: new FormControl('', [Validators.required, Validators.max(30)]),
-    password: new FormControl('', Validators.required,),
+      name: new FormControl('', [Validators.required]),
+      username: new FormControl('', [Validators.required]),
+      url: new FormControl('', [Validators.required, Validators.max(30)]),
+      password: new FormControl('', Validators.required,),
   });
 
   public passwordCardId?: string;
@@ -39,59 +39,59 @@ export class ModalPasswordComponent {
   ) { }
 
   public openWithPasswordCard(passwordCard: PasswordCardModel) {
-    this.passwordForm.patchValue({
-      name: passwordCard.name,
-      username: passwordCard.username,
-      url: passwordCard.url,
-      password: passwordCard.password
-    });
+      this.passwordForm.patchValue({
+          name: passwordCard.name,
+          username: passwordCard.username,
+          url: passwordCard.url,
+          password: passwordCard.password
+      });
 
-    this.passwordCardId = passwordCard.id;
-    this.isLoading = false;
-    this.showPassword = false;
+      this.passwordCardId = passwordCard.id;
+      this.isLoading = false;
+      this.showPassword = false;
 
-    this.modal.open();
+      this.modal.open();
   }
 
   public async save() {
-    const passwordCard: PasswordCardModel = {
-      id: this.passwordCardId,
-      name: this.passwordForm.controls['name'].value,
-      username: this.passwordForm.controls['username'].value,
-      url: this.passwordForm.controls['url'].value,
-      password: this.passwordForm.controls['password'].value
-    };
+      const passwordCard: PasswordCardModel = {
+          id: this.passwordCardId,
+          name: this.passwordForm.controls['name'].value,
+          username: this.passwordForm.controls['username'].value,
+          url: this.passwordForm.controls['url'].value,
+          password: this.passwordForm.controls['password'].value
+      };
 
-    let passwordEvent;
+      let passwordEvent;
 
-    if (passwordCard.id) {
-      passwordEvent = this.updatePasswordCardUseCase.execute(passwordCard);
-    } else {
-      passwordEvent = this.createPasswordCardUseCase.execute(passwordCard);
-    }
-
-    this.isLoading = true;
-
-    passwordEvent.subscribe({
-      complete: () => {
-        this.isLoading = false;
-        this.modal.close();
-        this.onSavePassword.emit();
+      if (passwordCard.id) {
+          passwordEvent = this.updatePasswordCardUseCase.execute(passwordCard);
+      } else {
+          passwordEvent = this.createPasswordCardUseCase.execute(passwordCard);
       }
-    });
+
+      this.isLoading = true;
+
+      passwordEvent.subscribe({
+          complete: () => {
+              this.isLoading = false;
+              this.modal.close();
+              this.onSavePassword.emit();
+          }
+      });
   }
 
   public tooglePasswordVisibility() {
-    this.showPassword = !this.showPassword;
+      this.showPassword = !this.showPassword;
   }
 
   public copyPassword() {
-    this.clipBoardService.copy(this.passwordForm.controls['password'].value);
+      this.clipBoardService.copy(this.passwordForm.controls['password'].value);
 
-    this.showCopied = true;
+      this.showCopied = true;
 
-    setTimeout(() => {
-      this.showCopied = false;
-    }, 1500);
+      setTimeout(() => {
+          this.showCopied = false;
+      }, 1500);
   }
 }

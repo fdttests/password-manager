@@ -9,24 +9,24 @@ import { ListPasswordComponent } from './components/list-password/list-password.
 import { ModalPasswordComponent } from './components/modal-password/modal-password.component';
 
 const routes: Routes = [
-  {
-      "path": "",
-      "component": HomePageComponent
-  }
+    {
+        "path": "",
+        "component": HomePageComponent
+    }
 ];
 
 @NgModule({
-  declarations: [
-    HomePageComponent,
-    ListPasswordComponent,
-    ModalPasswordComponent,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    ReactiveFormsModule,
-    ModalModule,
-    CardModule
-  ]
+    declarations: [
+        HomePageComponent,
+        ListPasswordComponent,
+        ModalPasswordComponent,
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ReactiveFormsModule,
+        ModalModule,
+        CardModule
+    ]
 })
 export class HomePageModule { }

@@ -7,33 +7,33 @@ import PasswordCardRepository from 'src/app/data/repositories/password-card.repo
 import { ModalPasswordComponent } from './modal-password.component';
 
 describe('ModalPasswordComponent', () => {
-  let component: ModalPasswordComponent;
-  let fixture: ComponentFixture<ModalPasswordComponent>;
+    let component: ModalPasswordComponent;
+    let fixture: ComponentFixture<ModalPasswordComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ModalPasswordComponent ],
-      providers: [
-        {
-          provide: PasswordCardRepository,
-          useClass: PasswordCardRepositoryMock
-        }
-      ],
-      imports: [
-        ReactiveFormsModule,
-        ModalModule,
-      ]
-    })
-    .compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [ ModalPasswordComponent ],
+            providers: [
+                {
+                    provide: PasswordCardRepository,
+                    useClass: PasswordCardRepositoryMock
+                }
+            ],
+            imports: [
+                ReactiveFormsModule,
+                ModalModule,
+            ]
+        })
+            .compileComponents();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ModalPasswordComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ModalPasswordComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

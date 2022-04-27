@@ -5,29 +5,29 @@ import PasswordCardRepository from 'src/app/data/repositories/password-card.repo
 import { ListPasswordComponent } from './list-password.component';
 
 describe('ListPasswordComponent', () => {
-  let component: ListPasswordComponent;
-  let fixture: ComponentFixture<ListPasswordComponent>;
+    let component: ListPasswordComponent;
+    let fixture: ComponentFixture<ListPasswordComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ListPasswordComponent ],
-      providers: [
-        {
-          provide: PasswordCardRepository,
-          useClass: PasswordCardRepositoryMock
-        }
-      ]
-    })
-    .compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [ ListPasswordComponent ],
+            providers: [
+                {
+                    provide: PasswordCardRepository,
+                    useClass: PasswordCardRepositoryMock
+                }
+            ]
+        })
+            .compileComponents();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ListPasswordComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ListPasswordComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
