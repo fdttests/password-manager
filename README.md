@@ -7,6 +7,10 @@ The project consists of two repositories:
 - [Front end](https://github.com/fdttests/password-manager);
 - [Back end](https://github.com/fdttests/password-manager-api);
 
+## Demo
+
+A demo of the application can be seen on:  [`https://fdt-password-manager.herokuapp.com/home`](https://fdt-password-manager.herokuapp.com/home)
+
 ## Development server
 
 Run `npm run serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
