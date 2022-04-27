@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import PasswordCardModel from 'src/app/data/models/password-card.model.';
 import DeletePasswordCardByIdUseCase from 'src/app/data/use-cases/delete-password-card-by-id.use-case';
-import GetPasswordCardUseCase from 'src/app/data/use-cases/get-password-card-use-case';
 import { ListPasswordComponent } from './components/list-password/list-password.component';
 import { ModalPasswordComponent } from './components/modal-password/modal-password.component';
 
@@ -33,6 +32,7 @@ export class HomePageComponent {
 
   public addPassword() {
     this.modalPasswordComponent.openWithPasswordCard({
+      name: '',
       username: '',
       url: '',
       password: '',

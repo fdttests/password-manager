@@ -23,6 +23,7 @@ export class ModalPasswordComponent {
   public isLoading = false;
 
   public passwordForm = this.formBuilder.group({
+    name: new FormControl('', [Validators.required]),
     username: new FormControl('', [Validators.required]),
     url: new FormControl('', [Validators.required, Validators.max(30)]),
     password: new FormControl('', Validators.required,),
@@ -39,6 +40,7 @@ export class ModalPasswordComponent {
 
   public openWithPasswordCard(passwordCard: PasswordCardModel) {
     this.passwordForm.patchValue({
+      name: passwordCard.name,
       username: passwordCard.username,
       url: passwordCard.url,
       password: passwordCard.password
@@ -54,6 +56,7 @@ export class ModalPasswordComponent {
   public async save() {
     const passwordCard: PasswordCardModel = {
       id: this.passwordCardId,
+      name: this.passwordForm.controls['name'].value,
       username: this.passwordForm.controls['username'].value,
       url: this.passwordForm.controls['url'].value,
       password: this.passwordForm.controls['password'].value

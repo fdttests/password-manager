@@ -40,6 +40,7 @@ export default class PasswordCardRepository {
         return this.http.put<void>(`${this.apiUrl}/password-cards/${passwordCard.id}`, {
             data: {
                 username: passwordCard.username,
+                name: passwordCard.name,
                 password: passwordCard.password,
                 url: passwordCard.url
             }

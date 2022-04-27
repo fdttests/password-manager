@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import PasswordCardModel from 'src/app/data/models/password-card.model.';
 import GetPasswordCardUseCase from 'src/app/data/use-cases/get-password-card-use-case';
-import getBaseUrl from "get-base-url"
 
 @Component({
   selector: 'app-list-password',
@@ -15,7 +14,7 @@ export class ListPasswordComponent implements OnInit, OnChanges {
   @Output() public onDeletePassword = new EventEmitter();
 
   public isLoading = false;
-  public passwordCards: Array<any> = [];
+  public passwordCards: Array<PasswordCardModel> = [];
 
   private debounce?: any;
 
@@ -28,7 +27,7 @@ export class ListPasswordComponent implements OnInit, OnChanges {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if (changes['searchTerm'] && !changes['searchTerm'].isFirstChange()) {
+    if (changes['searchTerm'] && !changes['searchTerm']?.isFirstChange()) {
       this.loadPasswords();
     }
   }
@@ -52,17 +51,5 @@ export class ListPasswordComponent implements OnInit, OnChanges {
         },
       });
     }, 500);
-  }
-
-  public getFormattedUrl(passwordCard: PasswordCardModel) {
-    if (this.isLocalUrl(passwordCard.url)) {
-      return 'Invalid url';
-    }
-    
-    return getBaseUrl(passwordCard.url);
-  }
-
-  private isLocalUrl(url: string) {
-    return getBaseUrl(url) === getBaseUrl()
   }
 }
